@@ -1,0 +1,16 @@
+ul {
+    list-style: none;
+}
+
+body {
+    text-align: center;
+}
+
+.create {
+    color: #fff;
+}
+
+.create:hover {
+    color: #fff;
+    text-decoration: none;
+}
