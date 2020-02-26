@@ -8,6 +8,7 @@ User = get_user_model()
 
 class Chat(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
     members = models.ManyToManyField(User)
 
     class Meta:
