@@ -1,10 +1,14 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+User = get_user_model()
+
 class Chat(models.Model):
     name = models.CharField(max_length=100)
-    members = models.ManyToManyField('Member', related_name='chat')
+    members = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name[:50]

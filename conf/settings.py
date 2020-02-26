@@ -25,7 +25,7 @@ SECRET_KEY = 'ry88*l4(hgh^_akz*oi%la^yzd%f9jig5q&*16xvi9r-fil8re'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['chat-app-zforre.herokuapp.com']
+ALLOWED_HOSTS = ['chat-app-zforre.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    #third party
+    'crispy_forms',
 
     #local
     'accounts.apps.AccountsConfig',
@@ -126,3 +129,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = 'chat:chat_list' #namespacing
+LOGOUT_REDIRECT_URL = '/accounts/login' #url path
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
