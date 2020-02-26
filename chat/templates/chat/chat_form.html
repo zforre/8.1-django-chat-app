@@ -1,0 +1,10 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'chat:chat_create' %}" method='post'>{% csrf_token %}
+    {{form.as_p}}
+    <button>Create Chat Room</button>
+</form>
+
+{% endblock content %}

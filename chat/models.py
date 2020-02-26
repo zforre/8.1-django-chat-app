@@ -10,14 +10,22 @@ class Chat(models.Model):
     name = models.CharField(max_length=100)
     members = models.ManyToManyField(User)
 
+    class Meta:
+        ordering = ['name']
+    
     def __str__(self):
-        return self.name[:50]
+        return self.name
 
     def get_absolute_url(self):
-        return reverse('chat:index')
+        return reverse('chat:chat_detail', args=(self.id,))
     
-class Member(models.Model):
-    name = models.CharField(max_length=100)
+class Comment(models.Model):
+    text = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name[:50]
+        return self.text[:50]
+
+    def get_absolute_url(self):
+        return reverse('chat:chat_detail', args=(self.chat_id,))
