@@ -2,13 +2,22 @@
 
 {% block content %}
 
-<a href="{% url 'chat:chat_create' %}">Add Chat</a>
+<a href="{% url 'chat:chat_list' %}">Home</a>
+<a >Log In</a>
+<a href="{% url 'accounts:signup' %}">Sign Up</a>
+
+<a href="{% url 'chat:chat_create' %}">Create New Room</a>
 
 <ul>
-    {% for chat in object_list %}
-        <li><a href="{% url 'chat:chat_detail' chat.id %}">{{chat.name}}</a></li>
-        <p>{{chat.description}}</p>
-    {% endfor %}
+    <div class="card mt-3">
+        {% for chat in object_list %}
+            <div class="card-body">
+                <li><a href="{% url 'chat:chat_detail' chat.id %}" class="card-title" >{{chat.name}}</a></li>
+                <p class="card-text">{{chat.description}}</p>
+            
+            </div>
+        {% endfor %}
+    </div>  
 </ul>
 
 {% endblock content %}
