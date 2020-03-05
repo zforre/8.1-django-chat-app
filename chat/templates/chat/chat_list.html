@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<a href="{% url 'chat:chat_list' %}">Home</a>
-<a >Log In</a>
-<a href="{% url 'accounts:signup' %}">Sign Up</a>
+<!-- <a class="mt-3 mr-3" href="{% url 'chat:chat_list' %}">Home</a>
+<a class="mt-3 mr-3" href="{% url 'login' %}">Log In</a>
+<a class="mt-3 mr-3" href="{% url 'accounts:signup' %}">Sign Up</a>
 
-<a href="{% url 'chat:chat_create' %}">Create New Room</a>
+<a href="{% url 'chat:chat_create' %}">Create New Room</a> -->
 
 <ul>
     <div class="card mt-3">
         {% for chat in object_list %}
             <div class="card-body">
-                <li><a href="{% url 'chat:chat_detail' chat.id %}" class="card-title" >{{chat.name}}</a></li>
+                <li><h2><a href="{% url 'chat:chat_detail' chat.id %}" class="card-title" >{{chat.name}}</a></h2></li>
                 <p class="card-text">{{chat.description}}</p>
             
             </div>

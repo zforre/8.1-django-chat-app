@@ -4,7 +4,8 @@
 
 <form action="{% url 'chat:chat_create' %}" method='post'>{% csrf_token %}
     {{form.as_p}}
-    <button>Create Chat Room</button>
+    <button class="btn btn-success">Create Chat Room</button>
 </form>
+
 
 {% endblock content %}
